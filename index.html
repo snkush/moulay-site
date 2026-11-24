@@ -226,6 +226,7 @@ footer a:hover{color:var(--red)}
 /* Clips : écrans 16:9 en carrousel, YouTube chargé seulement au clic (rapide, sans pistage avant lecture) */
 .clips{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:12px;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:4px 16px 14px;scroll-padding:0 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .clips::-webkit-scrollbar{display:none}
+.clips.solo{grid-auto-columns:100%}
 .clips li{scroll-snap-align:start;min-width:0}
 .clip{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:14px;overflow:hidden;background:#000;cursor:pointer;box-shadow:0 18px 36px -16px rgba(0,0,0,.9);isolation:isolate}
 .clip img,.clip iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0;display:block}
@@ -288,8 +289,15 @@ footer a:hover{color:var(--red)}
     </div>
   </section>
 
+  <h2 id="clips">Les clips</h2>
+  <ul class="clips" aria-label="Clips de Moulay">
+    <li><button class="clip" type="button" data-v="AtNjFLMiXDg" data-k="clip-choufouni-2" aria-label="Lire le clip Choufouni #2 : J&#x27;étais seul"><img src="https://i.ytimg.com/vi/AtNjFLMiXDg/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="1280" height="720"><i><svg aria-hidden="true"><use href="#play"/></svg></i></button><p><span>Choufouni #2 : J&#x27;étais seul</span><a href="/choufouni-2" data-k="clip-ecouter-choufouni-2">Écouter</a></p></li>
+    <li><button class="clip" type="button" data-v="NpJ-hMAclNQ" data-k="clip-choufouni-1" aria-label="Lire le clip Choufouni #1 : Brad Pitt"><img src="https://i.ytimg.com/vi/NpJ-hMAclNQ/maxresdefault.jpg" alt="" loading="lazy" decoding="async" width="1280" height="720"><i><svg aria-hidden="true"><use href="#play"/></svg></i></button><p><span>Choufouni #1 : Brad Pitt</span><a href="/choufouni-1" data-k="clip-ecouter-choufouni-1">Écouter</a></p></li>
+  </ul>
+  <p class="hint" aria-hidden="true">2 clips · fais glisser<svg><use href="#ar"/></svg></p>
+
   <nav class="listen" aria-label="Autres façons d'écouter">
-    <a class="pf yt" data-k="youtube-clip" href="https://www.youtube.com/watch?v=AtNjFLMiXDg" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#yt"/></svg></span><span class="lb">YouTube<em>Le clip</em></span><svg class="ar" aria-hidden="true"><use href="#ar"/></svg></a>
+    
     <a class="pf" data-k="page-sortie" href="/choufouni-2"><span class="ic"><svg aria-hidden="true"><use href="#play"/></svg></span><span class="lb">Page du son<em>Toutes les plateformes</em></span><svg class="ar" aria-hidden="true"><use href="#ar"/></svg></a>
   </nav>
 
@@ -374,5 +382,6 @@ var GC='';
     .catch(function(){b.disabled=false;alert("Erreur d'envoi, réessaie ou écris à lelabelsnk@gmail.com")})})});
 })();
 </script>
+<script>document.querySelectorAll('.clip').forEach(function(b){b.addEventListener('click',function(){if(b.classList.contains('on'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.v+'?autoplay=1&playsinline=1&rel=0';f.title=b.getAttribute('aria-label');f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.classList.add('on');b.appendChild(f);});});</script>
 </body>
 </html>
