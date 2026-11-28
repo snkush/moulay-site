@@ -72,6 +72,13 @@ svg{display:block}
 h1{font-family:var(--d);font-weight:400;font-size:clamp(76px,25vw,150px);line-height:.84;letter-spacing:-.005em;text-transform:uppercase;text-shadow:0 6px 30px rgba(0,0,0,.45)}
 .role{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(237,233,225,.84);margin-top:12px}
 .role b{font-weight:400;color:var(--red);padding:0 .35em}
+/* Icônes des apps sous le nom, comme un Linktree : un tap = la page de l'artiste sur l'app */
+.apps{display:flex;justify-content:center;gap:12px;margin-top:16px}
+.apps a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(7,8,10,.42);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(237,233,225,.18);transition:transform .25s var(--ease),border-color .2s,background .2s}
+.apps svg{width:22px;height:22px}
+.apps .sp svg{color:var(--spotify)}.apps .yt svg{color:#ff0033}.apps .am svg{color:#fa2d48}
+.apps .tt svg{filter:drop-shadow(1px .7px 0 #fe2c55) drop-shadow(-1px -.7px 0 #25f4ee)}
+.apps a:hover,.apps a:focus-visible{transform:translateY(-2px) scale(1.06);border-color:var(--paper);background:rgba(7,8,10,.65)}
 /* Au défilement, la photo recule et s'assombrit (navigateurs récents seulement) */
 @supports (animation-timeline:scroll()){
   .hero img{animation:recul linear both;animation-timeline:scroll(root);animation-range:0 60vh}
@@ -279,6 +286,11 @@ footer a:hover{color:var(--red)}
   <div class="id">
     <h1><span class="nm">Moulay<img class="sig" src="/photos/snk-logo.svg" alt="" aria-hidden="true" width="356" height="200"></span></h1>
     <p class="role">Artiste<b>·</b>Rap<b>·</b>Marrakech</p>
+    <nav class="apps" aria-label="Moulay sur les apps">
+      <a class="sp" data-k="haut-spotify" href="https://open.spotify.com/artist/4Ey0nOcC9efFJU3GVmNok1" target="_blank" rel="noopener me" aria-label="Spotify"><svg aria-hidden="true"><use href="#sp"/></svg></a>
+      <a class="am" data-k="haut-apple" href="https://music.apple.com/fr/artist/moulay/1766347327" target="_blank" rel="noopener me" aria-label="Apple Music"><svg aria-hidden="true"><use href="#am"/></svg></a>
+      <a class="ig" data-k="haut-instagram" href="https://www.instagram.com/moulayoff__/" target="_blank" rel="noopener me" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="url(#ig)" d="M12 2.9c2.96 0 3.31.01 4.48.07 2.55.11 3.44 1.02 3.55 3.55.06 1.17.07 1.52.07 4.48s-.01 3.31-.07 4.48c-.11 2.53-1 3.440-3.55 3.55-1.17.06-1.52.07-4.48.07s-3.31-.01-4.48-.07c-2.55-.11-3.44-1.02-3.55-3.55C3.91 14.31 3.9 13.96 3.9 11s.01-3.31.07-4.48C4.08 3.99 4.97 3.08 7.52 2.97 8.69 2.91 9.04 2.9 12 2.9ZM12 1C8.99 1 8.61 1.01 7.43 1.07 3.4 1.25 1.26 3.4 1.07 7.43 1.01 8.61 1 8.99 1 12s.01 3.39.07 4.57c.18 4.03 2.33 6.17 6.36 6.36 1.18.06 1.56.07 4.57.07s3.39-.01 4.57-.07c4.03-.18 6.18-2.33 6.36-6.36.06-1.180.07-1.56.07-4.57s-.01-3.39-.07-4.57C22.75 3.4 20.6 1.26 16.57 1.07 15.39 1.01 15.01 1 12 1Zm0 5.35a5.65 5.65 0 1 0 0 11.3 5.65 5.65 0 0 0 0-11.3Zm0 9.32a3.67 3.67 0 1 1 0-7.34 3.67 3.67 0 0 1 0 7.34Zm5.87-10.86a1.32 1.32 0 1 0 0 2.64 1.32 1.32 0 0 0 0-2.64Z"/></svg></a>
+    </nav>
   </div>
 </header>
 
